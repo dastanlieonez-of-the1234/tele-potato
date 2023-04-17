@@ -1,28 +1,28 @@
 input.onButtonPressed(Button.AB, function () {
-    potato = randint(20, 50)
+    potato = randint(1, 25)
 })
 input.onGesture(Gesture.Shake, function () {
     i_got_potato = randint(1, 4)
     if (i_got_potato == 1) {
-        radio.sendValue("p1", 1)
+        radio.sendValue("p1", potato)
         potato = -1
     }
     if (i_got_potato == 2) {
-        radio.sendValue("p2", 1)
+        radio.sendValue("p2", potato)
         potato = -1
     }
     if (i_got_potato == 3) {
-        radio.sendValue("p3", 1)
+        radio.sendValue("p3", potato)
         potato = -1
     }
     if (i_got_potato == 4) {
-        radio.sendValue("p4", 1)
+        radio.sendValue("p4", potato)
         potato = -1
     }
 })
 radio.onReceivedValue(function (name, value) {
     if ("p2" == name) {
-        potato = randint(20, 50)
+        potato = value
     }
 })
 let i_got_potato = 0
